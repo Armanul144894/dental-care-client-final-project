@@ -68,7 +68,9 @@ const Router = () => {
           path: "/dashboard/payment/:id",
           element: <Payment></Payment>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/bookings/${params.id}`),
+            fetch(
+              `https://dental-care-server-ppyny589o-armanul144894.vercel.app/bookings/${params.id}`
+            ),
         },
       ],
     },

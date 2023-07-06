@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import ConfirmationModal from "../../../shared/ConfirmationModal/ConfirmationModal";
 
-
 const ManageDoctor = () => {
   const [deletingDoctor, setDeletingDoctor] = useState(null);
 
@@ -20,7 +19,7 @@ const ManageDoctor = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/doctors"
+          "https://dental-care-server-ppyny589o-armanul144894.vercel.app/doctors"
           //   {
           //     headers: {
           //       authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -34,12 +33,15 @@ const ManageDoctor = () => {
   });
 
   const handleDeleteDoctor = (doctor) => {
-    fetch(`http://localhost:5000/doctors/${doctor._id}`, {
-      method: "DELETE",
-      // headers: {
-      //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      // },
-    })
+    fetch(
+      `https://dental-care-server-ppyny589o-armanul144894.vercel.app/doctors/${doctor._id}`,
+      {
+        method: "DELETE",
+        // headers: {
+        //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        // },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

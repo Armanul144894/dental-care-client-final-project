@@ -17,13 +17,15 @@ const AddDoctor = () => {
   const { data: specialties = [], isLoading } = useQuery({
     queryKey: ["appointmentSpecialty"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/appointmentSpecialty");
+      const res = await fetch(
+        "https://dental-care-server-ppyny589o-armanul144894.vercel.app/appointmentSpecialty"
+      );
       const data = await res.json();
       return data;
     },
   });
   const handleAddDoctor = (data) => {
-    data.preventDefault()
+    data.preventDefault();
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -43,14 +45,17 @@ const AddDoctor = () => {
           };
 
           // save doctor information to the database
-          fetch("http://localhost:5000/doctors", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              // authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(doctor),
-          })
+          fetch(
+            "https://dental-care-server-ppyny589o-armanul144894.vercel.app/doctors",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(doctor),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log(result);
@@ -104,7 +109,6 @@ const AddDoctor = () => {
             {...register("specialty")}
             className="select select-bordered w-full max-w-xs"
           >
-            
             {specialties.map((specialty) => (
               <option key={specialty._id}>{specialty.name}</option>
             ))}

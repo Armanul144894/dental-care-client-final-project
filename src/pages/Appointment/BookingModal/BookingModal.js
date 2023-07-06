@@ -36,13 +36,16 @@ const BookingModal = ({
       price,
     };
 
-    fetch("http://localhost:5000/bookings", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(booking),
-    })
+    fetch(
+      "https://dental-care-server-ppyny589o-armanul144894.vercel.app/bookings",
+      {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
