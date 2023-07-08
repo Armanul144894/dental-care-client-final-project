@@ -33,7 +33,9 @@ const AppointmentOption = ({
         ) : (
           <label onClick={openModal}>
             <div onClick={()=>setTreatment(appointmentOption)}>
-              <PrimaryButton>Book Appointment</PrimaryButton>
+                <button className="text-base text-white px-[33px] py-[10px] hover:bg-[#008575] bg-[#13a998] rounded-[5px]">
+                 Book Appointment
+                </button>
             </div>
           </label>
         )}

@@ -35,7 +35,7 @@ const AvailableAppointment = ({ selectedDate }) => {
 
   return (
     <div>
-      <p className="text-[#19D3AE] text-center text-[22px] font-[400]">
+      <p className="text-[#19D3AE] my-[50px] text-center text-[22px] font-[400]">
         Available Appointments on {format(selectedDate, "PP")}
       </p>
 
