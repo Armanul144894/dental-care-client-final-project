@@ -17,7 +17,7 @@ const Banner = () => {
             Perspiciatis.
           </p>
 
-          <PrimaryButton>Get Started</PrimaryButton>
+          <PrimaryButton>Book consultion</PrimaryButton>
         </div>
         <div>
           <img className="chair-img " src={chair} alt="" />
