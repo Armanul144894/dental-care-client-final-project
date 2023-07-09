@@ -25,7 +25,6 @@ const AddDoctor = () => {
     },
   });
   const handleAddDoctor = (data) => {
-    data.preventDefault();
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);

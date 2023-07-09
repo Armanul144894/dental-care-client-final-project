@@ -48,7 +48,6 @@ const BookingModal = ({
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         if (data.acknowledged) {
           refetch(true);
           closeModal(true);

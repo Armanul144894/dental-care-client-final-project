@@ -24,7 +24,7 @@ const Payment = () => {
       ))}
       <div className="w-96 my-12">
         {booking.map((booking) => (
-          <Elements stripe={stripePromise}>
+          <Elements key={booking._id} stripe={stripePromise}>
             <CheckoutForm booking={booking} />
           </Elements>
         ))}
