@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, ScrollRestoration, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/images/login.png";
 import logo from "../../assets/images/logo.png";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
@@ -18,10 +18,10 @@ const Login = () => {
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const [loginError, setLoginError] = useState("");
 
-  const location =useLocation()
-  const navigate =useNavigate()
+  const location = useLocation()
+  const navigate = useNavigate()
 
-  const from =location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || '/'
 
   const handleLogin = (data) => {
     const email = data.email;
@@ -34,14 +34,14 @@ const Login = () => {
         console.log(user);
         setUser(user);
         setLoginUserEmail(email);
-        navigate(from,{replace:true})
+        navigate(from, { replace: true })
         reset();
       })
       .catch((error) => {
         console.log(error.message);
         setLoginError(error.message);
       });
-      
+
   };
 
   const handleGoogleSignIn = () => {
@@ -49,7 +49,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from,{replace:true})
+        navigate(from, { replace: true })
       })
       .catch((error) => console.log(error));
 
@@ -113,8 +113,10 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ScrollRestoration />
     </div>
   );
 };
+
 
 export default Login;

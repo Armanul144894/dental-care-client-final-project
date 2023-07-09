@@ -13,6 +13,7 @@ import ManageDoctor from "../../pages/Dashboard/ManageDoctor/ManageDoctor";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Payment from "../../pages/Dashboard/Payment/Payment";
 import DisplayError from "../../shared/DisplayError/DisplayError";
+import Contact from "../../pages/Contact/Contact";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const Router = () => {
         {
           path: "/register",
           element: <Register></Register>,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
         },
       ],
     },

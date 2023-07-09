@@ -1,20 +1,21 @@
 import React from "react";
-import treatment from "../../../assets/images/treatment.png";
-import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
+import treatment from "../../../assets/images/Finding-a-therapist.jpeg";
 
 const ServiceDetails = () => {
   return (
-    <div className="my-40">
-      <div className="hero ">
-        <div className="hero-content flex-col lg:flex-row">
-          <img
-            src={treatment}
-            alt=""
-            className="max-w-sm rounded-lg shadow-2xl"
-          />
-          <div className="max-w-[500px] w-full mx-10">
+    <div className="my-40 max-w-[1282px] mx-auto">
+      <div className="">
+        <div className="w-full flex flex-col lg:flex-row">
+          <div className="lg:w-1/2">
+            <img
+              src={treatment}
+              alt=""
+              className="w-full rounded-lg shadow-2xl"
+            />
+          </div>
+          <div className="lg:w-1/2 w-full mx-10">
             <h1 className="text-5xl font-bold">
-              Exceptional Dental Care, on Your Terms
+              Exceptional Therapy Guide, on Your Terms
             </h1>
             <p className="py-6">
               It is a long established fact that a reader will be distracted by
@@ -24,7 +25,9 @@ const ServiceDetails = () => {
               here', making it look like readable English. Many desktop
               publishing packages and web page
             </p>
-            <PrimaryButton>Get Started</PrimaryButton>
+            <button className="text-base text-white px-[33px] py-[10px] bg-[#008575] rounded-[5px]">
+              Get Started
+            </button>
           </div>
         </div>
       </div>
