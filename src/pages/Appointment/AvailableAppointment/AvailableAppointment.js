@@ -4,6 +4,7 @@ import AppointmentOption from "../AppointmentOption/AppointmentOption";
 import { useQuery } from "@tanstack/react-query";
 
 import BookingModal from "../BookingModal/BookingModal";
+import Loader from "../../../shared/Loader/Loader";
 
 const AvailableAppointment = ({ selectedDate }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +30,9 @@ const AvailableAppointment = ({ selectedDate }) => {
     },
   });
 
-  //   if (isLoading) {
-  //     return <Loading></Loading>;
-  //   }
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div>

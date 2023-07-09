@@ -5,7 +5,7 @@ const AppointmentOption = ({
   appointmentOption,
   openModal,
   setTreatment,
-  
+
 }) => {
   const { name, slots, price } = appointmentOption;
 
@@ -22,7 +22,7 @@ const AppointmentOption = ({
         <p>
           {slots.length} {slots.length > 1 ? "spaces" : "space"} available
         </p>
-        <p>Price: {price}$ </p>
+        <p>Fees: {price}$ </p>
         {slots.length === 0 ? (
           <button
             className="bg-gray-500 btn-disabled btn rounded "
@@ -32,10 +32,10 @@ const AppointmentOption = ({
           </button>
         ) : (
           <label onClick={openModal}>
-            <div onClick={()=>setTreatment(appointmentOption)}>
-                <button className="text-base text-white px-[33px] py-[10px] hover:bg-[#008575] bg-[#13a998] rounded-[5px]">
-                 Book Appointment
-                </button>
+            <div onClick={() => setTreatment(appointmentOption)}>
+              <button className="text-base text-white px-[33px] py-[10px] hover:bg-[#008575] bg-[#13a998] rounded-[5px]">
+                Book Appointment
+              </button>
             </div>
           </label>
         )}
