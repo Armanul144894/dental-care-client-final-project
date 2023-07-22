@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactModal from "react-modal";
 import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
 import { format } from "date-fns";
 import { Toaster, toast } from "react-hot-toast";
+import axios from "axios";
 
 const BookingModal = ({
   isOpen,
@@ -59,6 +60,22 @@ const BookingModal = ({
       .catch((error) => {
         console.error("Error:", error);
       });
+  };
+
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [paymentURL, setPaymentURL] = useState("");
+
+  const handlePayment = async () => {
+    try {
+      const response = await axios.post("/initiate-payment", {
+        totalAmount,
+      });
+
+      const { gatewayURL } = response.data;
+      setPaymentURL(gatewayURL);
+    } catch (error) {
+      console.error("Error initiating payment:", error);
+    }
   };
 
   return (
@@ -140,6 +157,25 @@ const BookingModal = ({
 
               <PrimaryButton>Submit</PrimaryButton>
             </form>
+            <input
+              type="number"
+              placeholder="Enter total amount"
+              value={totalAmount}
+              onChange={(e) => setTotalAmount(Number(e.target.value))}
+            />
+            <button onClick={handlePayment}>Pay Now</button>
+
+            {paymentURL && (
+              <div>
+                <p>Redirecting to payment gateway...</p>
+                <iframe
+                  src={paymentURL}
+                  title="Payment Gateway"
+                  width="100%"
+                  height="600px"
+                />
+              </div>
+            )}
           </div>
           <Toaster />
         </div>

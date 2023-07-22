@@ -13,7 +13,7 @@ const ServiceDetails = () => {
               className="w-full rounded-lg shadow-2xl"
             />
           </div>
-          <div className="lg:w-1/2 w-full mx-10">
+          <div className="lg:w-1/2 w-full lg:mx-10">
             <h1 className="text-5xl font-bold">
               Exceptional Therapy Guide, on Your Terms
             </h1>
